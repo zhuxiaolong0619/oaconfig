@@ -1,0 +1,276 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.zxl.mapper.AoamailnumberMapper">
+  <resultMap id="BaseResultMap" type="com.zxl.entity.Aoamailnumber">
+    <id column="mail_number_id" jdbcType="BIGINT" property="mailNumberId" />
+    <result column="mail_account" jdbcType="VARCHAR" property="mailAccount" />
+    <result column="mail_create_time" jdbcType="TIMESTAMP" property="mailCreateTime" />
+    <result column="mail_des" jdbcType="VARCHAR" property="mailDes" />
+    <result column="mail_type" jdbcType="BIGINT" property="mailType" />
+    <result column="mail_user_name" jdbcType="VARCHAR" property="mailUserName" />
+    <result column="password" jdbcType="VARCHAR" property="password" />
+    <result column="status" jdbcType="BIGINT" property="status" />
+    <result column="mail_num_user_id" jdbcType="BIGINT" property="mailNumUserId" />
+  </resultMap>
+  <sql id="Example_Where_Clause">
+    <where>
+      <foreach collection="oredCriteria" item="criteria" separator="or">
+        <if test="criteria.valid">
+          <trim prefix="(" prefixOverrides="and" suffix=")">
+            <foreach collection="criteria.criteria" item="criterion">
+              <choose>
+                <when test="criterion.noValue">
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue">
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue">
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue">
+                  and ${criterion.condition}
+                  <foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Update_By_Example_Where_Clause">
+    <where>
+      <foreach collection="example.oredCriteria" item="criteria" separator="or">
+        <if test="criteria.valid">
+          <trim prefix="(" prefixOverrides="and" suffix=")">
+            <foreach collection="criteria.criteria" item="criterion">
+              <choose>
+                <when test="criterion.noValue">
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue">
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue">
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue">
+                  and ${criterion.condition}
+                  <foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Base_Column_List">
+    mail_number_id, mail_account, mail_create_time, mail_des, mail_type, mail_user_name, 
+    password, status, mail_num_user_id
+  </sql>
+  <select id="selectByExample" parameterType="com.zxl.entity.AoamailnumberExample" resultMap="BaseResultMap">
+    select
+    <if test="distinct">
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    from aoamailnumber
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null">
+      order by ${orderByClause}
+    </if>
+  </select>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Long" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from aoamailnumber
+    where mail_number_id = #{mailNumberId,jdbcType=BIGINT}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Long">
+    delete from aoamailnumber
+    where mail_number_id = #{mailNumberId,jdbcType=BIGINT}
+  </delete>
+  <delete id="deleteByExample" parameterType="com.zxl.entity.AoamailnumberExample">
+    delete from aoamailnumber
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+  </delete>
+  <insert id="insert" parameterType="com.zxl.entity.Aoamailnumber">
+    insert into aoamailnumber (mail_number_id, mail_account, mail_create_time, 
+      mail_des, mail_type, mail_user_name, 
+      password, status, mail_num_user_id
+      )
+    values (#{mailNumberId,jdbcType=BIGINT}, #{mailAccount,jdbcType=VARCHAR}, #{mailCreateTime,jdbcType=TIMESTAMP}, 
+      #{mailDes,jdbcType=VARCHAR}, #{mailType,jdbcType=BIGINT}, #{mailUserName,jdbcType=VARCHAR}, 
+      #{password,jdbcType=VARCHAR}, #{status,jdbcType=BIGINT}, #{mailNumUserId,jdbcType=BIGINT}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.zxl.entity.Aoamailnumber">
+    insert into aoamailnumber
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="mailNumberId != null">
+        mail_number_id,
+      </if>
+      <if test="mailAccount != null">
+        mail_account,
+      </if>
+      <if test="mailCreateTime != null">
+        mail_create_time,
+      </if>
+      <if test="mailDes != null">
+        mail_des,
+      </if>
+      <if test="mailType != null">
+        mail_type,
+      </if>
+      <if test="mailUserName != null">
+        mail_user_name,
+      </if>
+      <if test="password != null">
+        password,
+      </if>
+      <if test="status != null">
+        status,
+      </if>
+      <if test="mailNumUserId != null">
+        mail_num_user_id,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="mailNumberId != null">
+        #{mailNumberId,jdbcType=BIGINT},
+      </if>
+      <if test="mailAccount != null">
+        #{mailAccount,jdbcType=VARCHAR},
+      </if>
+      <if test="mailCreateTime != null">
+        #{mailCreateTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="mailDes != null">
+        #{mailDes,jdbcType=VARCHAR},
+      </if>
+      <if test="mailType != null">
+        #{mailType,jdbcType=BIGINT},
+      </if>
+      <if test="mailUserName != null">
+        #{mailUserName,jdbcType=VARCHAR},
+      </if>
+      <if test="password != null">
+        #{password,jdbcType=VARCHAR},
+      </if>
+      <if test="status != null">
+        #{status,jdbcType=BIGINT},
+      </if>
+      <if test="mailNumUserId != null">
+        #{mailNumUserId,jdbcType=BIGINT},
+      </if>
+    </trim>
+  </insert>
+  <select id="countByExample" parameterType="com.zxl.entity.AoamailnumberExample" resultType="java.lang.Long">
+    select count(*) from aoamailnumber
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+  </select>
+  <update id="updateByExampleSelective" parameterType="map">
+    update aoamailnumber
+    <set>
+      <if test="record.mailNumberId != null">
+        mail_number_id = #{record.mailNumberId,jdbcType=BIGINT},
+      </if>
+      <if test="record.mailAccount != null">
+        mail_account = #{record.mailAccount,jdbcType=VARCHAR},
+      </if>
+      <if test="record.mailCreateTime != null">
+        mail_create_time = #{record.mailCreateTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="record.mailDes != null">
+        mail_des = #{record.mailDes,jdbcType=VARCHAR},
+      </if>
+      <if test="record.mailType != null">
+        mail_type = #{record.mailType,jdbcType=BIGINT},
+      </if>
+      <if test="record.mailUserName != null">
+        mail_user_name = #{record.mailUserName,jdbcType=VARCHAR},
+      </if>
+      <if test="record.password != null">
+        password = #{record.password,jdbcType=VARCHAR},
+      </if>
+      <if test="record.status != null">
+        status = #{record.status,jdbcType=BIGINT},
+      </if>
+      <if test="record.mailNumUserId != null">
+        mail_num_user_id = #{record.mailNumUserId,jdbcType=BIGINT},
+      </if>
+    </set>
+    <if test="_parameter != null">
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExample" parameterType="map">
+    update aoamailnumber
+    set mail_number_id = #{record.mailNumberId,jdbcType=BIGINT},
+      mail_account = #{record.mailAccount,jdbcType=VARCHAR},
+      mail_create_time = #{record.mailCreateTime,jdbcType=TIMESTAMP},
+      mail_des = #{record.mailDes,jdbcType=VARCHAR},
+      mail_type = #{record.mailType,jdbcType=BIGINT},
+      mail_user_name = #{record.mailUserName,jdbcType=VARCHAR},
+      password = #{record.password,jdbcType=VARCHAR},
+      status = #{record.status,jdbcType=BIGINT},
+      mail_num_user_id = #{record.mailNumUserId,jdbcType=BIGINT}
+    <if test="_parameter != null">
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByPrimaryKeySelective" parameterType="com.zxl.entity.Aoamailnumber">
+    update aoamailnumber
+    <set>
+      <if test="mailAccount != null">
+        mail_account = #{mailAccount,jdbcType=VARCHAR},
+      </if>
+      <if test="mailCreateTime != null">
+        mail_create_time = #{mailCreateTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="mailDes != null">
+        mail_des = #{mailDes,jdbcType=VARCHAR},
+      </if>
+      <if test="mailType != null">
+        mail_type = #{mailType,jdbcType=BIGINT},
+      </if>
+      <if test="mailUserName != null">
+        mail_user_name = #{mailUserName,jdbcType=VARCHAR},
+      </if>
+      <if test="password != null">
+        password = #{password,jdbcType=VARCHAR},
+      </if>
+      <if test="status != null">
+        status = #{status,jdbcType=BIGINT},
+      </if>
+      <if test="mailNumUserId != null">
+        mail_num_user_id = #{mailNumUserId,jdbcType=BIGINT},
+      </if>
+    </set>
+    where mail_number_id = #{mailNumberId,jdbcType=BIGINT}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.zxl.entity.Aoamailnumber">
+    update aoamailnumber
+    set mail_account = #{mailAccount,jdbcType=VARCHAR},
+      mail_create_time = #{mailCreateTime,jdbcType=TIMESTAMP},
+      mail_des = #{mailDes,jdbcType=VARCHAR},
+      mail_type = #{mailType,jdbcType=BIGINT},
+      mail_user_name = #{mailUserName,jdbcType=VARCHAR},
+      password = #{password,jdbcType=VARCHAR},
+      status = #{status,jdbcType=BIGINT},
+      mail_num_user_id = #{mailNumUserId,jdbcType=BIGINT}
+    where mail_number_id = #{mailNumberId,jdbcType=BIGINT}
+  </update>
+</mapper>
