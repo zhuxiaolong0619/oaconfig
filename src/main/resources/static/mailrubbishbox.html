@@ -1,8 +1,9 @@
+<meta charset="UTF-8">
 <div class="yuan">
 	<div class="bgc-w box box-primary">
 		<!--盒子头-->
 		<div class="box-header">
-			<h3 class="box-title titles">收件箱</h3>
+			<h3 class="box-title titles">垃圾箱</h3>
 			<div class="box-tools">
 				<div class="input-group" style="width: 220px; margin-top: 0px;">
 					<input type="text" class="form-control input-sm cha" placeholder="类型，主题，状态，收件人查询">
@@ -24,7 +25,9 @@
 						<span class="glyphicon glyphicon-eye-open"></span></a> 
 					<a class="btn btn-sm btn-default bac star" title="星标">
 						<span class="glyphicon glyphicon-star"></span></a>
-									</div>
+											<a class="btn btn-sm btn-default bac reh" title="恢复删除">
+						<span class="glyphicon glyphicon-retweet"></span></a>
+				</div>
 				<a class="btn btn-sm btn-default bac" href="" title="刷新"><span class="glyphicon glyphicon-refresh"></span></a>
 			</div>
 			<div class="table-responsive">
@@ -44,67 +47,16 @@
 						<td>
 						<span class="labels"><label><input name="items" type="checkbox"><i>✓</i></label></span>
 						</td>
-							<td class="em"><span class="glyphicon glyphicon-star" style="width: 25px;"></span></td>
+							<td class="em"><span class="glyphicon glyphicon-star-empty" style="width: 25px;"></span></td>
 						<td><span>邮件</span></td>
 						<td><span>罗密欧</span></td>
-						<td><span>jack-&gt;罗密欧(内部邮件)</span></td>
-						<td><span>2019-1-9 11:56:49</span></td>
+						<td><span>根本</span></td>
+						<td><span>2017-9-29 19:53:52</span></td>
 						<td><span></span></td>
 						<td>
 							<div class="label label-primary">一般</div>
 						</td>
-						<td class="mailid" style="display:none;"><span>54</span></td>
-						<td><a href="##" class="label xiugai lab"><span class="glyphicon glyphicon-search"></span> 查看</a>
-						</td>
-					</tr>
-					<tr>
-						<td>
-						<span class="labels"><label><input name="items" type="checkbox"><i>✓</i></label></span>
-						</td>
-							<td class="em"><span class="glyphicon glyphicon-star-empty" style="width: 25px;"></span></td>
-						<td><span>邮件</span></td>
-						<td><span>朱丽叶;罗密欧</span></td>
-						<td><span>【回复】发v显示</span></td>
-						<td><span>2017-10-1 16:59:41</span></td>
-						<td><span></span></td>
-						<td>
-							<div class="label label-primary">一般</div>
-						</td>
-						<td class="mailid" style="display:none;"><span>25</span></td>
-						<td><a href="##" class="label xiugai lab"><span class="glyphicon glyphicon-search"></span> 查看</a>
-						</td>
-					</tr>
-					<tr>
-						<td>
-						<span class="labels"><label><input name="items" type="checkbox"><i>✓</i></label></span>
-						</td>
-							<td class="em"><span class="glyphicon glyphicon-star-empty" style="width: 25px;"></span></td>
-						<td><span>邮件</span></td>
-						<td><span>罗密欧;朱丽叶</span></td>
-						<td><span>信息</span></td>
-						<td><span>2017-10-1 12:46:44</span></td>
-						<td><span class="glyphicon glyphicon-paperclip"></span></td>
-						<td>
-							<div class="label label-primary">一般</div>
-						</td>
-						<td class="mailid" style="display:none;"><span>23</span></td>
-						<td><a href="##" class="label xiugai lab"><span class="glyphicon glyphicon-search"></span> 查看</a>
-						</td>
-					</tr>
-					<tr>
-						<td>
-						<span class="labels"><label><input name="items" type="checkbox"><i>✓</i></label></span>
-						</td>
-							<td class="em"><span class="glyphicon glyphicon-star-empty" style="width: 25px;"></span></td>
-						<td><span style="color:red;">公告</span></td>
-						<td><span>罗密欧</span></td>
-						<td><span>呃呃呃</span></td>
-						<td><span>2017-9-30 16:24:46</span></td>
-						<td><span></span></td>
-						<td>
-							<div class="label label-primary">一般</div>
-						</td>
-						<td class="mailid" style="display:none;"><span>18</span></td>
+						<td class="mailid" style="display:none;"><span>15</span></td>
 						<td><a href="##" class="label xiugai lab"><span class="glyphicon glyphicon-search"></span> 查看</a>
 						</td>
 					</tr>
@@ -117,7 +69,7 @@
 		<div id="page" style="background: #fff; border: 0px; margin-top: 0px; padding: 2px; height: 25px;">
 			<div style="width: 40%; float: left;">
 				<div class="pageInfo" style="margin-left: 5px;">
-					共<span>4</span>条 | 每页<span>10</span>条
+					共<span>1</span>条 | 每页<span>10</span>条
 					| 共<span>1</span>页
 				</div>
 			</div>
@@ -142,22 +94,22 @@
 		/* url是从后台接收过来的链接，sort是记录排序规则 */
 		$('.tablefirst').on('click',function(){
 			 if(true==false){
-				 $('.thistable').load('mailtitle?page=0&title=收件箱');
+				 $('.thistable').load('mailtitle?page=0&title=垃圾箱');
 			 }
 		});
 		$('.tableup').on('click',function(){
 			 if(true==false){
-				 $('.thistable').load('mailtitle?page=-1&title=收件箱');
+				 $('.thistable').load('mailtitle?page=-1&title=垃圾箱');
 			 }
 		});
 		$('.tabledown').on('click',function(){
 			if(true==false){
-				$('.thistable').load('mailtitle?page=1&title=收件箱');
+				$('.thistable').load('mailtitle?page=1&title=垃圾箱');
 			 }
 		});
 		$('.tablelast').on('click',function(){
 			if(true==false){
-				$('.thistable').load('mailtitle?page=0&title=收件箱');
+				$('.thistable').load('mailtitle?page=0&title=垃圾箱');
 			 }
 			
 		});
@@ -270,7 +222,7 @@
 			 }
 			
 				//$('.set').load('smail',{id:$mailid,title:title});
-				$('.set').load('mailsee.html');
+				$('.set').load('mailsee2.html');
 				/* parent.changeemail(); */
 			});
 		 //重新编辑
