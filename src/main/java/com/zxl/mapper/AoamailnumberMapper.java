@@ -1,7 +1,7 @@
 package com.zxl.mapper;
 
 import com.zxl.entity.Aoamailnumber;
-import com.zxl.entity.AoamailnumberExample;
+
 import java.util.List;
 import org.apache.ibatis.annotations.Param;
 

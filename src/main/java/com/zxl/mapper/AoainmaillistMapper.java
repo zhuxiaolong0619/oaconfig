@@ -1,30 +1,17 @@
 package com.zxl.mapper;
 
-import com.zxl.entity.Aoainmaillist;
-import com.zxl.entity.AoainmaillistExample;
 import java.util.List;
-import org.apache.ibatis.annotations.Param;
+import java.util.Map;
+
+import com.zxl.service.AoainmaillistService;
 
 public interface AoainmaillistMapper {
-    long countByExample(AoainmaillistExample example);
 
-    int deleteByExample(AoainmaillistExample example);
+    public List<AoainmaillistService> queryAoainmaillist();
 
-    int deleteByPrimaryKey(Long mailId);
+    public void addAoainmaillist(AoainmaillistService a);
 
-    int insert(Aoainmaillist record);
+    public List<AoainmaillistService> getAoainmaillistByfy(Map<String,Object> map);
 
-    int insertSelective(Aoainmaillist record);
-
-    List<Aoainmaillist> selectByExample(AoainmaillistExample example);
-
-    Aoainmaillist selectByPrimaryKey(Long mailId);
-
-    int updateByExampleSelective(@Param("record") Aoainmaillist record, @Param("example") AoainmaillistExample example);
-
-    int updateByExample(@Param("record") Aoainmaillist record, @Param("example") AoainmaillistExample example);
-
-    int updateByPrimaryKeySelective(Aoainmaillist record);
-
-    int updateByPrimaryKey(Aoainmaillist record);
+    public void upAoainmaillist (AoainmaillistService a);
 }
